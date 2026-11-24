@@ -1,22 +1,27 @@
 
-
-In Week 3, I explored and compared three popular tokenization techniques: BPE, WordPiece and SentencePiece. I used pretrained tokenizer models to understand how English, Telugu and Hindi sentences are divided into smaller tokens.
+In Week 3, I implemented an LLM monitoring system using MongoDB to track the performance and usage of different language models. The application records token consumption, response time and estimated API costs for both Gemini and Ollama.
 
 Steps I followed:
 
-1. Created a Python project in VS Code.
-2. Installed the required libraries, Transformers and SentencePiece.
-3. Selected three pretrained tokenizer models: GPT-2, Multilingual BERT and XLM-R.
-4. Provided sample sentences in English, Telugu and Hindi.
-5. Loaded the pretrained tokenizers using the Hugging Face library.
-6. Converted the input sentences into tokens and token IDs.
-7. Compared the token pieces and total token counts for all three languages.
-8. Observed how different tokenization methods produce different results.
+1. Created a Week 3 project folder in VS Code with the required Python files.
+2. Installed the necessary libraries, including Google GenAI, Requests, PyMongo and python-dotenv.
+3. Generated a Gemini API key and configured a MongoDB Atlas database.
+4. Stored the API key and MongoDB connection URL in the `.env` file.
+5. Created a usage logger to save LLM request details in MongoDB.
+6. Updated the common LLM client to track input tokens, output tokens and response latency.
+7. Implemented API cost estimation for Gemini and usage tracking for Ollama.
+8. Added timeout and retry mechanisms to handle temporary errors.
+9. Created unit tests to verify the client and logging functionality.
+10. Executed the application and checked the stored usage records in MongoDB.
 
 Commands used:
 
-..\\.MyEnv\Scripts\Activate.ps1
-
 pip install -r requirements.txt
 
-python tokenizer_comparison.py
+python -m unittest test_client.py
+
+python main.py
+
+ollama pull llama3.2
+
+ollama run llama3.2
